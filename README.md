@@ -16,4 +16,5 @@ First of all you add to install few library:
 -----------------------------------------
 
 Download or copy/past the file into your text editor, and launch the script from your terminal.
+
 In the future, I plan to implement this script (or the final version) into a Raspberry Pi.
