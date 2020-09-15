@@ -21,6 +21,6 @@ In the future, I plan to implement this script (or the final version) into a Ras
 
 -----------------------------------------
 
-You can see an exemple there :
+Video Demo There :
 
 https://youtu.be/KRGgOIE_tAM
