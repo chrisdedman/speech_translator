@@ -1,9 +1,9 @@
+from googletrans import Translator
 import speech_recognition as sr
+from sys import exit
 import pyttsx3
 import pyaudio
-from googletrans import Translator
 import os
-from sys import exit
 
 r = sr.Recognizer()
 micro = sr.Microphone(device_index=0)
@@ -45,7 +45,7 @@ def CommandEN():
     try:
         print("I'm recognizing...")
         #  Add you code language here
-        MyTextEN = r.recognize_google(audio, language="en-US") 
+        MyTextEN = r.recognize_google(audio, language="en-US")
         p = Translator()
         # Add the language you want to translate here
         My = p.translate(MyTextEN, dest="french")
@@ -74,7 +74,7 @@ def CommandFR():
     try:
         print("Je traduit...")
         #  Add you code language here
-        MyTextFR = r.recognize_google(audio, language="fr-FR")  
+        MyTextEN = r.recognize_google(audio, language="fr-FR")  
         p = Translator()
         # Add the language you want to translate here
         My = p.translate(MyTextFR, dest="english")
