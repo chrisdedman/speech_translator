@@ -35,7 +35,7 @@ def speakEN(command):
 
 # Command in English
 def CommandEN():
-    
+
     with micro as source:
 
         print("I'm listening...")
@@ -50,7 +50,7 @@ def CommandEN():
         # Add the language you want to translate here
         My = p.translate(MyTextEN, dest="french")
         translated = str(My.text)
-        print("Il a dit: ",translated)
+        print("Il a dit: ", translated)
         speakFR("Il a dit: " + translated)
         print(f"You said: {MyTextEN}\n")
 
@@ -102,7 +102,7 @@ def welcome():
 if __name__ == "__main__":
     os.system("clear")
     welcome()
-    while (1):
+    while 1:
         MyTextEN = CommandEN().lower()
         if "stop translate" in MyTextEN:
             exit(0)
