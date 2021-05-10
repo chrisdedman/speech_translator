@@ -13,23 +13,25 @@ micro = sr.Microphone(device_index=0)
 def speakFR(command):
     engine = pyttsx3.init()
     voice_id = "com.apple.speech.synthesis.voice.thomas"
-    engine.setProperty('voice', voice_id)
+    engine.setProperty("voice", voice_id)
     # Sets speed percent, can be more than 100
-    engine.setProperty('rate', 180)
-    engine.setProperty('volume', 0.7)
+    engine.setProperty("rate", 180)
+    engine.setProperty("volume", 0.7)
     engine.say(command)
     engine.runAndWait()
+
 
 # English Apple Speaker
 def speakEN(command):
     engine = pyttsx3.init()
     voice_id = "com.apple.speech.synthesis.voice.samantha"
-    engine.setProperty('voice', voice_id)
+    engine.setProperty("voice", voice_id)
     # Sets speed percent, can be more than 100
-    engine.setProperty('rate', 180)
-    engine.setProperty('volume', 0.7)
+    engine.setProperty("rate", 180)
+    engine.setProperty("volume", 0.7)
     engine.say(command)
     engine.runAndWait()
+
 
 # Command in English
 def CommandEN():
@@ -43,10 +45,10 @@ def CommandEN():
     try:
         print("I'm recognizing...")
         #  Add you code language here
-        MyTextEN = r.recognize_google(audio, language='en-US') 
+        MyTextEN = r.recognize_google(audio, language="en-US") 
         p = Translator()
         # Add the language you want to translate here
-        My = p.translate(MyTextEN, dest='french')
+        My = p.translate(MyTextEN, dest="french")
         translated = str(My.text)
         print("Il a dit: ",translated)
         speakFR("Il a dit: " + translated)
@@ -58,6 +60,7 @@ def CommandEN():
         return "None"
 
     return MyTextEN
+
 
 # Command in French
 def CommandFR():
@@ -71,10 +74,10 @@ def CommandFR():
     try:
         print("Je traduit...")
         #  Add you code language here
-        MyTextFR = r.recognize_google(audio, language='fr-FR')  
+        MyTextFR = r.recognize_google(audio, language="fr-FR")  
         p = Translator()
         # Add the language you want to translate here
-        My = p.translate(MyTextFR, dest='english')
+        My = p.translate(MyTextFR, dest="english")
         translated = str(My.text)
         print("He said: ", translated)
         speakEN("He said: " + translated)
@@ -87,22 +90,24 @@ def CommandFR():
 
     return MyTextFR
 
+
 # Welcome in the program message
 def welcome():
-    hello = 'Welcome to the speech translator! Start to speak in English.'
+    hello = "Welcome to the speech translator! Start to speak in English."
     print(hello)
     speakEN(hello)
 
+
 # Run the program
-if __name__ == '__main__':
-    os.system('clear')
+if __name__ == "__main__":
+    os.system("clear")
     welcome()
     while (1):
         MyTextEN = CommandEN().lower()
-        if 'stop translate' in MyTextEN:
+        if "stop translate" in MyTextEN:
             exit(0)
         speakFR("Parler en Francais")
         MyTextFR = CommandFR().lower()
-        if 'arrête de traduire' in MyTextFR:
+        if "arrête de traduire" in MyTextFR:
             exit(0)
         speakEN("Speak in English")
